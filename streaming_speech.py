@@ -18,16 +18,27 @@ proc_list = [['RX81', 'RX8', Path.cwd() / 'rcx' / 'streaming_speech.rcx'],
 freefield.initialize(setup='dome', device=proc_list)
 
 # # read sound file for target speech
+
 target_speech = slab.Sound(Path.cwd() / 'OLKISA_targets' / '000.wav')
+masker_speech_l = slab.Sound(Path.cwd() / 'OLKISA_masker' / '013.wav 3 kleine Bilder & 197.wav 9 weiße Schuhe.wav')
+masker_speech_r = slab.Sound(Path.cwd() / 'OLKISA_masker' / '013.wav 3 kleine Bilder & 200.wav 7 große Blumen.wav')
+
+#todo for i in n_trials: select random wav from the right folder
+
 # write target sound and speaker to corresponding processor
-freefield.set_signal_and_speaker(signal=target_speech, speaker=target_speaker_id, equalize=True, data_tag='data_target',
+freefield.set_signal_and_speaker(signal=target_speech, speaker=target_speaker_id, equalize=False, data_tag='data_target',
                        chan_tag='target_ch', n_samples_tag='n_target')
+#
+freefield.set_signal_and_speaker(signal=target_speech, speaker=masker_r_speaker_id, equalize=False, data_tag='data_masker_l',
+                       chan_tag='masker_l_ch', n_samples_tag='n_masker_l')
+
+freefield.set_signal_and_speaker(signal=target_speech, speaker=masker_r_speaker_id, equalize=False, data_tag='data_masker_r',
+                       chan_tag='masker_r_ch', n_samples_tag='n_masker_r')
 
 # send trigger to play the sound
 freefield.play()
 
 
-# test
 
 
 """import time
