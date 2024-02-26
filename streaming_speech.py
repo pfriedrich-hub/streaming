@@ -27,13 +27,7 @@ freefield.set_signal_and_speaker(signal=target_speech, speaker=target_speaker_id
 freefield.play()
 
 
-
-
-
-
-
-
-
+# test
 
 
 """import time
