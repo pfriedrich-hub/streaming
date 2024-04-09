@@ -20,8 +20,8 @@ freefield.initialize(setup='dome', device=proc_list)
 # # read sound file for target speech
 
 target_speech = slab.Sound(Path.cwd() / 'OLKISA_targets' / '000.wav')
-masker_speech_l = slab.Sound(Path.cwd() / 'OLKISA_masker' / '013.wav 3 kleine Bilder & 197.wav 9 weiße Schuhe.wav')
-masker_speech_r = slab.Sound(Path.cwd() / 'OLKISA_masker' / '013.wav 3 kleine Bilder & 200.wav 7 große Blumen.wav')
+masker_speech_l = slab.Sound(Path.cwd() / 'olkisa_masker' / '013.wav 3 kleine Bilder & 197.wav 9 weiße Schuhe.wav')
+masker_speech_r = slab.Sound(Path.cwd() / 'olkisa_masker' / '013.wav 3 kleine Bilder & 200.wav 7 große Blumen.wav')
 
 #todo for i in n_trials: select random wav from the right folder
 
@@ -80,7 +80,7 @@ def mix(masker_sentences):  #
 samplerate = 44100
 slab.set_default_samplerate(samplerate)
 target_dir = Path.cwd() / "OLKISA_targets" / "male"
-masker_dir = Path.cwd() / "OLKISA_masker"
+masker_dir = Path.cwd() / "olkisa_masker"
 slab.ResultsFile.results_folder = 'Results'
 target_files = [file.name for file in target_dir.glob("*")]
 masker_files = [file.name for file in masker_dir.glob("*")]
