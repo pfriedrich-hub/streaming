@@ -4,22 +4,26 @@ from pathlib import Path
 samplerate = 48828
 
 # -- parameter settings: -- #
-target_speaker_id = 23
-masker_l_speaker_id = 2
-masker_r_speaker_id = 44
-
+target_speaker_id = (0, 0)  # (azimuth, elevation)
+masker_l_speaker_id = (-52.5, 0)
+masker_r_speaker_id = (52.5, 0)
+n_trials = 10
+n_blocks = 3
+azimuth_shift = 12.5  # shift in azimuth between blocks in degrees,
+# the masker will move closer with every block
 # -- main script: -- #
 
 # liste der zu initialisierenden prozessoren und dazugehörige rcx files
 proc_list = [['RX81', 'RX8', Path.cwd() / 'rcx' / 'streaming_speech.rcx'],
-           ['RX82', 'RX8', Path.cwd() / 'rcx' / 'streaming_speech.rcx'],
-           ['RP2', 'RP2', Path.cwd() / 'rcx' / '9_buttons.rcx']]
+             ['RX82', 'RX8', Path.cwd() / 'rcx' / 'streaming_speech.rcx'],
+            ['RP2', 'RP2', Path.cwd() / 'rcx' / '9_buttons.rcx']]
 # initialize processors
 freefield.initialize(setup='dome', device=proc_list)
 
 # # read sound file for target speech
+select_random_speech()
 
-target_speech = slab.Sound(Path.cwd() / 'OLKISA_targets' / '000.wav')
+target_speech = slab.Sound(Path.cwd() / 'olkisa_targets' / '000.wav')
 masker_speech_l = slab.Sound(Path.cwd() / 'olkisa_masker' / '013.wav 3 kleine Bilder & 197.wav 9 weiße Schuhe.wav')
 masker_speech_r = slab.Sound(Path.cwd() / 'olkisa_masker' / '013.wav 3 kleine Bilder & 200.wav 7 große Blumen.wav')
 
@@ -79,7 +83,7 @@ def mix(masker_sentences):  #
 #freefield.set_logger('debug') # 'warning' for production
 samplerate = 44100
 slab.set_default_samplerate(samplerate)
-target_dir = Path.cwd() / "OLKISA_targets" / "male"
+target_dir = Path.cwd() / "olkisa_targets" / "male"
 masker_dir = Path.cwd() / "olkisa_masker"
 slab.ResultsFile.results_folder = 'Results'
 target_files = [file.name for file in target_dir.glob("*")]
