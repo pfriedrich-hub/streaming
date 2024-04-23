@@ -17,8 +17,8 @@ def select_random_speech(target_path=Path.cwd() / 'olkisa_targets',
     while n_trials <= 30:
         for i in range(n_trials):
             print(i)
-            random_masker_path = (random.choice(masker_files))
-            random_masker_wav = slab.Sound(random_masker_path)
+            random_masker_path = (random.choice(masker_files))          # ich würde sample statt choice verwenden
+            random_masker_wav = slab.Sound(random_masker_path)          # damit keine Wiederholungen der wav
             masker_wavs.append(random_masker_wav)
         for i in range(n_trials):
             print(i)
