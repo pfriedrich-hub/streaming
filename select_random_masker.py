@@ -1,32 +1,43 @@
 import random
+import matplotlib
+matplotlib.use('TkAgg')
+from matplotlib import pyplot as plt
 import subprocess
 from glob import glob
 from pathlib import Path
+import numpy
 import slab
 
-def select_random_speech(target_path=Path.cwd() / 'olkisa_targets',
-                         masker_path=Path.cwd() / 'olkisa_masker', n_trials=30):
-    masker_files = list(masker_path.glob('*.wav'))
-    target_files = list(target_path.glob('*.wav'))
+def select_random_speech(wav_path=Path.cwd() / 'wav_data', n_trials=30):
 
-    masker_l_wavs = []
-    masker_r_wavs = []
-    target_wavs = []
-    wav_list = []
+    numbered_folders = list(wav_path.glob('*'))
 
-    while n_trials <= 30:
-        for i in range(n_trials):
-            print(i)
-            random_masker_path = (random.choice(masker_files))          # ich würde sample statt choice verwenden
-            random_masker_wav = slab.Sound(random_masker_path)          # damit keine Wiederholungen der wav
-            masker_wavs.append(random_masker_wav)
-        for i in range(n_trials):
-            print(i)
-            random_target_path = (random.choice(target_files))
-            random_target_wav = slab.Sound(random_target_path)
-            target_wavs.append(random_target_wav)
+    for trial in range(n_trials):
+        random_numbered_folders = numpy.random.choice(numbered_folders, size=5, replace=False)
+        wav_list = []
+        for folder in random_numbered_folders:
+            numbered_wavs = list(folder.glob('*.wav'))
+            random_wav = numpy.random.choice(numbered_wavs)
+            random_wav = slab.Sound(random_wav)
+            wav_list.append(random_wav)
+        sound1 = wav_list[0]
+        sound2 = wav_list[1]
+
+        sound1.waveform()
 
 
-        # todo do this with target sounds
+        data1 = sound1.data
+        data2 = sound2.data
+        max_len = numpy.max([len(data1), len(data2)])
+        numpy.pad(data1, (0, numpy.diff(len(data1), len(data2))))
+        # todo make sure they have the same length
+        merged = sound1 + sound2
+
+        merged_sound = slab.Sound(data=merged)
+
+
+
+        # todo
+
 
     return target_wavs, masker_l_wavs, masker_r_wavs

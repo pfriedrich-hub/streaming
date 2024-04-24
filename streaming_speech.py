@@ -1,13 +1,14 @@
 import freefield
 import slab
 from pathlib import Path
+import select_random_masker
 samplerate = 48828
 
 # -- parameter settings: -- #
 target_speaker_id = (0, 0)  # (azimuth, elevation)
 masker_l_speaker_id = (-52.5, 0)
 masker_r_speaker_id = (52.5, 0)
-n_trials = 10
+n_trials = 30
 n_blocks = 3
 azimuth_shift = 12.5  # shift in azimuth between blocks in degrees,
 # the masker will move closer with every block
@@ -21,7 +22,7 @@ proc_list = [['RX81', 'RX8', Path.cwd() / 'rcx' / 'streaming_speech.rcx'],
 freefield.initialize(setup='dome', device=proc_list)
 
 # # read sound file for target speech
-select_random_speech()
+target_wavs, masker_l_wavs, masker_r_wavs = select_random_masker.select_random_speech()
 
 target_speech = slab.Sound(Path.cwd() / 'olkisa_targets' / '000.wav')
 masker_speech_l = slab.Sound(Path.cwd() / 'olkisa_masker' / '013.wav 3 kleine Bilder & 197.wav 9 weiße Schuhe.wav')
