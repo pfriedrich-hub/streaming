@@ -4,7 +4,6 @@ from pathlib import Path
 import select_random_masker
 samplerate = 48828
 
-
 # -- parameter settings: -- #
 target_speaker_id = (0, 0)  # (azimuth, elevation)
 masker_l_speaker_id = (-52.5, 0)
