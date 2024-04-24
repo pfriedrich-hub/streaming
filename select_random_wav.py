@@ -1,6 +1,6 @@
 import random
 import matplotlib
-matplotlib.use('TkAgg')
+import matplotlib.use('TkAgg')
 from matplotlib import pyplot as plt
 import subprocess
 from glob import glob
