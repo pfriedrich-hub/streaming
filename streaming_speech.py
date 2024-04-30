@@ -1,48 +1,50 @@
+import matplotlib
+matplotlib.use('TkAgg')
 import freefield
 import slab
+import time
 from pathlib import Path
-import select_random_masker
+from random_stimuli import select_random_speech
 samplerate = 48828
 
 # -- parameter settings: -- #
 target_speaker_id = (0, 0)  # (azimuth, elevation)
 masker_l_speaker_id = (-52.5, 0)
 masker_r_speaker_id = (52.5, 0)
+isi = 500  # isi in ms
 n_trials = 30
 n_blocks = 3
 azimuth_shift = 12.5  # shift in azimuth between blocks in degrees,
 # the masker will move closer with every block
 # -- main script: -- #
 
-# liste der zu initialisierenden prozessoren und dazugehörige rcx files
-proc_list = [['RX81', 'RX8', Path.cwd() / 'rcx' / 'streaming_speech.rcx'],
-             ['RX82', 'RX8', Path.cwd() / 'rcx' / 'streaming_speech.rcx'],
-            ['RP2', 'RP2', Path.cwd() / 'rcx' / '9_buttons.rcx']]
-# initialize processors
-freefield.initialize(setup='dome', device=proc_list)
+def speech_streaming():
+    # liste der zu initialisierenden prozessoren und dazugehörige rcx files
+    proc_list = [['RX81', 'RX8', Path.cwd() / 'rcx' / 'streaming_speech.rcx'],
+                 ['RX82', 'RX8', Path.cwd() / 'rcx' / 'streaming_speech.rcx'],
+                ['RP2', 'RP2', Path.cwd() / 'rcx' / '9_buttons.rcx']]
+    # initialize processors
+    freefield.initialize(setup='dome', device=proc_list)
 
-# # read sound file for target speech
-target_wavs, masker_l_wavs, masker_r_wavs = select_random_masker.select_random_speech()
+    for block in range(n_blocks):
+        target_list, masker_l_list, masker_r_list = select_random_speech(n_trials=n_trials)
+        for trial_idx in range(n_trials):
+            # write target sound and speaker to corresponding processor
+            freefield.set_signal_and_speaker(signal=target_list[trial_idx], speaker=target_speaker_id, equalize=False, data_tag='data_target',
+                                   chan_tag='target_ch', n_samples_tag='n_target')
+            #
+            freefield.set_signal_and_speaker(signal=masker_l_list[trial_idx], speaker=masker_l_speaker_id, equalize=False, data_tag='data_masker_l',
+                                   chan_tag='masker_l_ch', n_samples_tag='n_masker_l')
 
-target_speech = slab.Sound(Path.cwd() / 'olkisa_targets' / '000.wav')
-masker_speech_l = slab.Sound(Path.cwd() / 'olkisa_masker' / '013.wav 3 kleine Bilder & 197.wav 9 weiße Schuhe.wav')
-masker_speech_r = slab.Sound(Path.cwd() / 'olkisa_masker' / '013.wav 3 kleine Bilder & 200.wav 7 große Blumen.wav')
+            freefield.set_signal_and_speaker(signal=masker_r_list[trial_idx], speaker=masker_r_speaker_id, equalize=False, data_tag='data_masker_r',
+                                   chan_tag='masker_r_ch', n_samples_tag='n_masker_r')
 
-#todo for i in n_trials: select random wav from the right folder
+            time.sleep(isi / 1000)
+            # send trigger to play the sound
+            freefield.play()
 
-# write target sound and speaker to corresponding processor
-freefield.set_signal_and_speaker(signal=target_speech, speaker=target_speaker_id, equalize=False, data_tag='data_target',
-                       chan_tag='target_ch', n_samples_tag='n_target')
-#
-freefield.set_signal_and_speaker(signal=target_speech, speaker=masker_r_speaker_id, equalize=False, data_tag='data_masker_l',
-                       chan_tag='masker_l_ch', n_samples_tag='n_masker_l')
-
-freefield.set_signal_and_speaker(signal=target_speech, speaker=masker_r_speaker_id, equalize=False, data_tag='data_masker_r',
-                       chan_tag='masker_r_ch', n_samples_tag='n_masker_r')
-
-# send trigger to play the sound
-freefield.play()
-
+# todo calibrate setup, check why sounds play twice sometimes
+#  , set correct level, set correct isi, implement button response, check clipping
 
 
 
