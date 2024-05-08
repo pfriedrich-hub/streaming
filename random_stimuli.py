@@ -1,3 +1,5 @@
+import copy
+
 import matplotlib
 matplotlib.use('TkAgg')
 from matplotlib import pyplot as plt
@@ -5,23 +7,35 @@ from pathlib import Path
 import numpy
 import slab
 
-def select_random_speech(wav_path=Path.cwd() / 'wav_data', n_trials=30):
+def select_random_speech(wav_path=Path.cwd() / 'data' / 'wav_data', n_trials=30, level=85):
 
     numbered_folders = list(wav_path.glob('*'))
     masker_l_list = []  # list containing n_trials stimuli#
     masker_r_list = []  # list containing n_trials stimuli
     target_list = []  # list containing n_trials stimuli
+    random_numbered_folders = []
 
     for trial in range(n_trials):
-        random_numbered_folders = numpy.random.choice(numbered_folders, size=5, replace=False)
+        random_numbered_folders.append(list(numpy.random.choice(numbered_folders, size=5, replace=False)))
+
+    for idx in range(n_trials):
+        while (random_numbered_folders[idx+1][4] == random_numbered_folders[idx][4] or
+                random_numbered_folders[idx+1][4] == random_numbered_folders[idx+2][4]):
+            random_numbered_folders[idx + 1][4] = numpy.random.choice(numbered_folders, size=1, replace=False)
+            while random_numbered_folders[idx + 1][4] in random_numbered_folders[idx + 1][:4]:
+                random_numbered_folders[idx + 1][4] = numpy.random.choice(numbered_folders, size=1, replace=False)
+
+    for trial in range(n_trials):
+        random_numbered_folders_trial = random_numbered_folders[trial]
         speech_list = []
         n_samples = []
         wav_path_list = []  # just to test
-        for folder in random_numbered_folders:
+        for folder in random_numbered_folders_trial:
             numbered_wavs = list(folder.glob('*.wav'))
             wav = numpy.random.choice(numbered_wavs)
             wav_path_list.append(wav)
             speech = slab.Sound(wav)
+            speech.level = level
             n_samples.append(speech.n_samples)
             speech_list.append(speech)
 
@@ -41,4 +55,3 @@ def select_random_speech(wav_path=Path.cwd() / 'wav_data', n_trials=30):
         target_list.append(speech_list[4])  # list containing n_trials stimuli
 
     return target_list, masker_l_list, masker_r_list
-
