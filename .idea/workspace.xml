@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="af183944-0ebd-4dbb-acb3-aac2ed3d0ccc" name="Changes" comment="ignore changes">
+      <change afterPath="$PROJECT_DIR$/results/gui_streaming_speech_3_conditions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gui_get_results_streaming_speech.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/results/gui_get_results_streaming_speech.xlsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;alex-fflab&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/pfriedrich-hub/streaming.git&quot;,
+    &quot;accountId&quot;: &quot;2f0781d1-8083-41be-8f6f-6234fa0afdca&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2er8KXtoaElToH59MKnaweBSDzP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.gui_streaming_speech.executor": "Run",
+    "Python.gui_streaming_speech_3_conditions.executor": "Run",
+    "Python.random_wav_while.executor": "Run",
+    "Python.select_random_masker.executor": "Run",
+    "Python.streaming_speech.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-PY-241.14494.241" />
+        <option value="bundled-python-sdk-0509580d9d50-28c9f5db9ffe-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.14494.241" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="af183944-0ebd-4dbb-acb3-aac2ed3d0ccc" name="Changes" comment="" />
+      <created>1712651273850</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712651273850</updated>
+      <workItem from="1715758260036" duration="520000" />
+      <workItem from="1715758844587" duration="5882000" />
+      <workItem from="1716279727030" duration="287000" />
+    </task>
+    <task id="LOCAL-00001" summary="1">
+      <option name="closed" value="true" />
+      <created>1712651544989</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1712651544989</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1">
+      <option name="closed" value="true" />
+      <created>1712651781526</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1712651781526</updated>
+    </task>
+    <task id="LOCAL-00003" summary="23.4. random targets">
+      <option name="closed" value="true" />
+      <created>1713884900244</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713884900244</updated>
+    </task>
+    <task id="LOCAL-00004" summary="23.4. random targets">
+      <option name="closed" value="true" />
+      <created>1713887158643</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713887158643</updated>
+    </task>
+    <task id="LOCAL-00005" summary="23.4. random targets">
+      <option name="closed" value="true" />
+      <created>1713963911503</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713963911503</updated>
+    </task>
+    <task id="LOCAL-00006" summary="23.4. random targets">
+      <option name="closed" value="true" />
+      <created>1713964175727</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713964175727</updated>
+    </task>
+    <task id="LOCAL-00007" summary="select random wav">
+      <option name="closed" value="true" />
+      <created>1713964851855</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713964851855</updated>
+    </task>
+    <task id="LOCAL-00008" summary="select random wav">
+      <option name="closed" value="true" />
+      <created>1713964996731</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713964996731</updated>
+    </task>
+    <task id="LOCAL-00009" summary="ignore changes">
+      <option name="closed" value="true" />
+      <created>1713966029955</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713966029956</updated>
+    </task>
+    <task id="LOCAL-00010" summary="ignore changes">
+      <option name="closed" value="true" />
+      <created>1715758910474</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715758910474</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1" />
+    <MESSAGE value="23.4. random targets" />
+    <MESSAGE value="select random wav" />
+    <MESSAGE value="ignore changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="ignore changes" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/gui_streaming_speech_py$gui_streaming_speech.coverage" NAME="gui_streaming_speech Coverage Results" MODIFIED="1715775469445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/results" />
+    <SUITE FILE_PATH="coverage/random_stimuli_py$gui_streaming_speech_3_conditions.coverage" NAME="gui_streaming_speech_3_conditions Coverage Results" MODIFIED="1716279862258" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/results" />
+  </component>
+</project>
