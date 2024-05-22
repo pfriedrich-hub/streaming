@@ -7,7 +7,7 @@ from pathlib import Path
 import numpy
 import slab
 
-def select_random_speech(wav_path=Path.cwd() / 'data' / 'wav_data', n_trials=30, level=85):
+def select_random_speech(n_trials=30, level=85, wav_path=Path.cwd() / 'data' / 'wav_data'):
 
     numbered_folders = list(wav_path.glob('*'))
     masker_l_list = []  # list containing n_trials stimuli#
@@ -18,12 +18,12 @@ def select_random_speech(wav_path=Path.cwd() / 'data' / 'wav_data', n_trials=30,
     for trial in range(n_trials):
         random_numbered_folders.append(list(numpy.random.choice(numbered_folders, size=5, replace=False)))
 
-    for idx in range(n_trials):
+    for idx in range(n_trials-2):
         while (random_numbered_folders[idx+1][4] == random_numbered_folders[idx][4] or
                 random_numbered_folders[idx+1][4] == random_numbered_folders[idx+2][4]):
-            random_numbered_folders[idx + 1][4] = numpy.random.choice(numbered_folders, size=1, replace=False)
+            random_numbered_folders[idx + 1][4] = numpy.random.choice(numbered_folders, size=1, replace=False)[0]
             while random_numbered_folders[idx + 1][4] in random_numbered_folders[idx + 1][:4]:
-                random_numbered_folders[idx + 1][4] = numpy.random.choice(numbered_folders, size=1, replace=False)
+                random_numbered_folders[idx + 1][4] = numpy.random.choice(numbered_folders, size=1, replace=False)[0]
 
     for trial in range(n_trials):
         random_numbered_folders_trial = random_numbered_folders[trial]
