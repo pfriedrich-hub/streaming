@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bd77734-d735-44d5-80b2-8edc78783b5c" name="Changes" comment="remove clipping&#10;set level&#10;calibration&#10;prevent repeating target&#10;move folders&#10;reset buffers at end of playing and add playback function in rcx">
+    <list default="true" id="2bd77734-d735-44d5-80b2-8edc78783b5c" name="Changes" comment="work on gui">
+      <change afterPath="$PROJECT_DIR$/streaming_noise/streaming_noise.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/random_stimuli.py" beforeDir="false" afterPath="$PROJECT_DIR$/random_stimuli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/gui_get_results_streaming_speech.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/results/gui_get_results_streaming_speech.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/gui_streaming_speech_3_conditions.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui_streaming_speech_3_conditions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_speech.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_speech.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/rcx/streaming_noise.rcx" beforeDir="false" afterPath="$PROJECT_DIR$/data/rcx/streaming_noise.rcx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_noise/noise_levels.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/noise_levels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_noise/random_maskers.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/random_maskers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_noise/versuch_pink_noise.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/versuch_pink_noise.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,6 +39,9 @@
     &quot;accountId&quot;: &quot;2f0781d1-8083-41be-8f6f-6234fa0afdca&quot;
   }
 }</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -57,7 +61,9 @@
     &quot;Python.streaming_speech.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/projects/streaming&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -75,7 +81,6 @@
   <component name="RunManager">
     <configuration name="gui_streaming_speech_3_conditions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="streaming" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -113,7 +118,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="af183944-0ebd-4dbb-acb3-aac2ed3d0ccc" name="Changes" comment="" />
+      <changelist id="2bd77734-d735-44d5-80b2-8edc78783b5c" name="Changes" comment="work on gui" />
       <created>1712651273850</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -121,6 +126,7 @@
       <workItem from="1715758260036" duration="520000" />
       <workItem from="1715758844587" duration="5882000" />
       <workItem from="1716279727030" duration="287000" />
+      <workItem from="1717413774189" duration="4999000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -202,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1715758910474</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="work on gui">
+      <created>1716364976405</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716364976405</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -236,7 +249,8 @@
     <MESSAGE value="select random wav" />
     <MESSAGE value="ignore changes" />
     <MESSAGE value="remove clipping&#10;set level&#10;calibration&#10;prevent repeating target&#10;move folders&#10;reset buffers at end of playing and add playback function in rcx" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove clipping&#10;set level&#10;calibration&#10;prevent repeating target&#10;move folders&#10;reset buffers at end of playing and add playback function in rcx" />
+    <MESSAGE value="work on gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="work on gui" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/gui_streaming_speech_py$gui_streaming_speech_3_conditions.coverage" NAME="gui_streaming_speech_3_conditions Coverage Results" MODIFIED="1716358621544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/results" />

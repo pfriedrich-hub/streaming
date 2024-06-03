@@ -1,9 +1,9 @@
 
 import slab
 import random
-import noise_levels
+import streaming_noise.noise_levels as noise_levels
 
-levels = random.choice(noise_levels.masker)  # frequencies of the tones
+levels = random.choice(noise_levels.masker)  # frequencies of the tones # todo ?
 seq = slab.Trialsequence(conditions=levels, n_reps=1)  # 10 repetitions per condition
 # now we draw elements from the list, generate a tone and play it until we reach the end:
 for freq in seq:

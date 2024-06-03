@@ -7,7 +7,7 @@ import noise_levels
 
 maskers = slab.Sound.pinknoise(duration=0.5)
 maskers.level = random.choices(noise_levels.maskers)
-maskers.filter(frequency=(500, 3999), kind='bp') # bandpass .25 to 4 kHz
+maskers = maskers.filter(frequency=(500, 3999), kind='bp')  # bandpass .25 to 4 kHz
 maskers.ramp(duration=0.005)
 maskers.play()
 
