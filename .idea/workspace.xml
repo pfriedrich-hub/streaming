@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2bd77734-d735-44d5-80b2-8edc78783b5c" name="Changes" comment="work on gui">
-      <change afterPath="$PROJECT_DIR$/streaming_noise/streaming_noise.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/rcx/streaming_noise.rcx" beforeDir="false" afterPath="$PROJECT_DIR$/data/rcx/streaming_noise.rcx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_noise/noise_levels.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/noise_levels.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_noise/random_maskers.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/random_maskers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_noise/versuch_pink_noise.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/versuch_pink_noise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_noise/random_targets.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/random_targets.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_noise/streaming_noise.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/streaming_noise.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,6 +125,7 @@
       <workItem from="1715758844587" duration="5882000" />
       <workItem from="1716279727030" duration="287000" />
       <workItem from="1717413774189" duration="4999000" />
+      <workItem from="1718793423541" duration="6976000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
