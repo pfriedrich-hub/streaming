@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-gui_streaming_speech.py
-=======
-gui_streaming_speech_3_conditions.py
->>>>>>> origin/main
+streaming_noise.py

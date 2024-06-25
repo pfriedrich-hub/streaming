@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bd77734-d735-44d5-80b2-8edc78783b5c" name="Changes" comment="work on noise streaming">
+    <list default="true" id="2bd77734-d735-44d5-80b2-8edc78783b5c" name="Changes" comment="work on gui">
+      <change afterPath="$PROJECT_DIR$/java -jar.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/streaming.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/streaming.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_noise/streaming_noise.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/streaming_noise.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +54,7 @@
   &quot;keyToString&quot;: {
     &quot;Python.gui_streaming_speech.executor&quot;: &quot;Run&quot;,
     &quot;Python.gui_streaming_speech_3_conditions.executor&quot;: &quot;Run&quot;,
+    &quot;Python.java -jar.executor&quot;: &quot;Run&quot;,
     &quot;Python.random_wav_while.executor&quot;: &quot;Run&quot;,
     &quot;Python.select_random_masker.executor&quot;: &quot;Run&quot;,
     &quot;Python.streaming_speech.executor&quot;: &quot;Run&quot;,
@@ -65,7 +68,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;PyScientificConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -77,6 +80,7 @@
   <component name="RunManager">
     <configuration name="gui_streaming_speech_3_conditions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="streaming" />
+      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -123,7 +127,6 @@
       <workItem from="1715758844587" duration="5882000" />
       <workItem from="1716279727030" duration="287000" />
       <workItem from="1717413774189" duration="4999000" />
-      <workItem from="1718793423541" duration="7080000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -212,14 +215,7 @@
       <option name="project" value="LOCAL" />
       <updated>1716364976405</updated>
     </task>
-    <task id="LOCAL-00012" summary="work on noise streaming">
-      <created>1718800478148</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1718800478148</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,8 +250,7 @@
     <MESSAGE value="ignore changes" />
     <MESSAGE value="remove clipping&#10;set level&#10;calibration&#10;prevent repeating target&#10;move folders&#10;reset buffers at end of playing and add playback function in rcx" />
     <MESSAGE value="work on gui" />
-    <MESSAGE value="work on noise streaming" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on noise streaming" />
+    <option name="LAST_COMMIT_MESSAGE" value="work on gui" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/gui_streaming_speech_py$gui_streaming_speech_3_conditions.coverage" NAME="gui_streaming_speech_3_conditions Coverage Results" MODIFIED="1716358621544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/results" />
