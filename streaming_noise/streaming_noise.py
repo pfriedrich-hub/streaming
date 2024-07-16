@@ -10,7 +10,7 @@ from matplotlib import pyplot as plt
 def noise_streaming():
     # liste der zu initialisierenden prozessoren und dazugehörige rcx files
     proc_list = [['RX81', 'RX8', data_path / 'rcx' / 'streaming_noise.rcx'],
-                 ['RX82', 'RX8', data_path / 'rcx' / 'streaming_speech.rcx'],
+                 ['RX82', 'RX8', data_path / 'rcx' / 'streaming_noise.rcx'],
                 ['RP2', 'RP2', data_path / 'rcx' / '4_buttons.rcx']]
     # initialize processors
     freefield.initialize(setup='dome', device=proc_list)
@@ -38,7 +38,7 @@ def noise_streaming():
     masker_r_delay = 15
 
     # amplitudes
-    baseline_amp = 65
+    baseline_amp = 45
     amp_range = 30
 
     ceiling_amp = baseline_amp + amp_range
@@ -72,25 +72,31 @@ def noise_streaming():
 
     # write general parameters
     freefield.write(tag='soa', value=soa, processors=['RX81', 'RX82'])
-    freefield.write(tag='stim_duration', value=stim_duration_samples, processors=['RX81'])
-    freefield.write(tag='n_stim', value=n_stim, processors=['RX81'])
+    freefield.write(tag='stim_duration', value=stim_duration_samples, processors=['RX81', 'RX82'])
+    freefield.write(tag='n_stim', value=n_stim, processors=['RX81', 'RX82'])
 
     # write target parameters
-    freefield.write(tag='target_amps', value=target_amp_list, processors=['RX81'])
+    freefield.write(tag='target_amps', value=target_amp_list,
+                    processors=freefield.pick_speakers(target_speaker_id)[0].analog_proc)
     freefield.write(tag='target_channel', value=freefield.pick_speakers(target_speaker_id)[0].analog_channel,
-                    processors=['RX81'])
+                    processors=freefield.pick_speakers(target_speaker_id)[0].analog_proc)
 
     # write masker parameters
     # left
-    freefield.write(tag='masker_l_amps', value=masker_l_amp_list, processors=['RX81'])
+    freefield.write(tag='masker_l_amps', value=masker_l_amp_list,
+                    processors=freefield.pick_speakers(masker_l_speaker_id)[0].analog_proc)
     freefield.write(tag='masker_l_channel', value=freefield.pick_speakers(masker_l_speaker_id)[0].analog_channel,
-                    processors=['RX81'])
-    freefield.write(tag='masker_l_delay', value=masker_l_delay, processors=['RX81'])
+                    processors=freefield.pick_speakers(masker_l_speaker_id)[0].analog_proc)
+    freefield.write(tag='masker_l_delay', value=masker_l_delay,
+                    processors=freefield.pick_speakers(masker_l_speaker_id)[0].analog_proc)
 
     # right
-    freefield.write(tag='masker_r_amps', value=masker_r_amp_list, processors=['RX82'])
+    freefield.write(tag='masker_r_amps', value=masker_r_amp_list,
+                    processors=freefield.pick_speakers(masker_r_speaker_id)[0].analog_proc)
     freefield.write(tag='masker_r_channel', value=freefield.pick_speakers(masker_r_speaker_id)[0].analog_channel,
-                    processors=['RX82'])
-    freefield.write(tag='masker_r_delay', value=masker_r_delay, processors=['RX82'])
+                    processors=freefield.pick_speakers(masker_r_speaker_id)[0].analog_proc)
+    freefield.write(tag='masker_r_delay', value=masker_r_delay,
+                    processors=freefield.pick_speakers(masker_r_speaker_id)[0].analog_proc)
     freefield.play()
 
+    #todo implement bp filter
