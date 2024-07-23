@@ -30,7 +30,7 @@ def noise_streaming():
     n_targets = 20
 
     # timing parameters
-    isi = 50  # time between stimuli (inter stim interval)
+    isi = 200  # time between stimuli (inter stim interval)
     stim_duration = 50  # stim duration
     soa = isi + stim_duration  # time between onsets (stim onset async)
     stim_duration_samples = stim_duration * 50
@@ -38,12 +38,12 @@ def noise_streaming():
     masker_r_delay = 15
 
     # amplitudes
-    baseline_amp = 45
-    amp_range = 30
+    baseline_amp = 30
+    amp_range = 80
 
     ceiling_amp = baseline_amp + amp_range
-    target_amp = baseline_amp + amp_range / 3
-    non_target_amp = ceiling_amp - amp_range / 3
+    target_amp = ceiling_amp - amp_range / 3
+    non_target_amp = baseline_amp + amp_range / 3
     masker_amps = [baseline_amp + amp_range / 5, baseline_amp + amp_range / 2.5,
                    ceiling_amp - amp_range / 2.5, ceiling_amp - amp_range / 5]
 
@@ -74,6 +74,8 @@ def noise_streaming():
     freefield.write(tag='soa', value=soa, processors=['RX81', 'RX82'])
     freefield.write(tag='stim_duration', value=stim_duration_samples, processors=['RX81', 'RX82'])
     freefield.write(tag='n_stim', value=n_stim, processors=['RX81', 'RX82'])
+    freefield.write(tag='target_amp', value=target_amp, processors=['RX81', 'RX82'])
+
 
     # write target parameters
     freefield.write(tag='target_amps', value=target_amp_list,
@@ -97,6 +99,14 @@ def noise_streaming():
                     processors=freefield.pick_speakers(masker_r_speaker_id)[0].analog_proc)
     freefield.write(tag='masker_r_delay', value=masker_r_delay,
                     processors=freefield.pick_speakers(masker_r_speaker_id)[0].analog_proc)
+
+
+
     freefield.play()
+
+    playing = True
+
+
+
 
     #todo implement bp filter

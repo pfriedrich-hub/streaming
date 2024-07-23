@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bd77734-d735-44d5-80b2-8edc78783b5c" name="Changes" comment="work on noise streaming" />
+    <list default="true" id="2bd77734-d735-44d5-80b2-8edc78783b5c" name="Changes" comment="work on noise streaming">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/streaming.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/streaming.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/rcx/streaming_noise.rcx" beforeDir="false" afterPath="$PROJECT_DIR$/data/rcx/streaming_noise.rcx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_matlab/MakeTone.m" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_matlab/MakeTone.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_matlab/StreamingMain.fig" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_matlab/StreamingMain.fig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_matlab/StreamingMain.m" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_matlab/StreamingMain.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_matlab/StreamingSetup.fig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_matlab/StreamingSetup.m" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_matlab/StreamingSetup.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_matlab/Streaming_INIT.m" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_matlab/Streaming_INIT.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_matlab/makeStreamingSeq.m" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_matlab/makeStreamingSeq.m" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_noise/streaming_noise.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/streaming_noise.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -147,6 +161,9 @@
       <workItem from="1716279727030" duration="287000" />
       <workItem from="1717413774189" duration="4999000" />
       <workItem from="1718793423541" duration="7080000" />
+      <workItem from="1721144936226" duration="15000" />
+      <workItem from="1721721472061" duration="1706000" />
+      <workItem from="1721726519144" duration="3091000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -249,7 +266,14 @@
       <option name="project" value="LOCAL" />
       <updated>1721124043531</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="work on noise streaming">
+      <created>1721124573156</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1721124573156</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
