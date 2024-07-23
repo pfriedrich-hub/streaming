@@ -15,7 +15,7 @@ JAR_LOCATION = SCRIPT + "/spaceship.jar"  # TODO based on name and relative path
 DEFAULT_JAVA_OPTS = ""  # TODO fill this with any defaults?
 
 # + richtig, - falsch, + Game over, ESC Reset
-g
+
 def arg_parser():
     p = argparse.ArgumentParser(add_help=False)
     p.add_argument('--java-options', default=DEFAULT_JAVA_OPTS)
