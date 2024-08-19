@@ -25,7 +25,7 @@ def noise_streaming():
     masker_r_speaker_id = (masker_r_az, 0)
     target_speaker_id = (0, 0)
 
-    # stim numbers
+    # stim numbers in target stream
     n_stim = 320
     n_targets = 20
 
@@ -66,28 +66,57 @@ def noise_streaming():
     freefield.write(tag='target_amp', value=target_amp, processors=['RX81', 'RX82'])
 
     # write target parameters
-    freefield.write(tag='target_amps', value=target_amp_list,
-                    processors=freefield.pick_speakers(target_speaker_id)[0].analog_proc)
+    freefield.write(tag='target_amps', value=target_amp_list, processors=['RX81', 'RX82'])
     freefield.write(tag='target_channel', value=freefield.pick_speakers(target_speaker_id)[0].analog_channel,
                     processors=freefield.pick_speakers(target_speaker_id)[0].analog_proc)
 
     # write masker parameters
     # left
-    freefield.write(tag='masker_l_amps', value=masker_l_amp_list,
-                    processors=freefield.pick_speakers(masker_l_speaker_id)[0].analog_proc)
-    freefield.write(tag='masker_l_channel', value=freefield.pick_speakers(masker_l_speaker_id)[0].analog_channel,
-                    processors=freefield.pick_speakers(masker_l_speaker_id)[0].analog_proc)
+    # freefield.write(tag='masker_l_amps', value=masker_l_amp_list,
+    #                 processors=freefield.pick_speakers(masker_l_speaker_id)[0].analog_proc)
+    # freefield.write(tag='masker_l_channel', value=freefield.pick_speakers(masker_l_speaker_id)[0].analog_channel,
+    #                 processors=freefield.pick_speakers(masker_l_speaker_id)[0].analog_proc)
+    #
+    # # right
+    # freefield.write(tag='masker_r_amps', value=masker_r_amp_list,
+    #                 processors=freefield.pick_speakers(masker_r_speaker_id)[0].analog_proc)
+    # freefield.write(tag='masker_r_channel', value=freefield.pick_speakers(masker_r_speaker_id)[0].analog_channel,
+    #                 processors=freefield.pick_speakers(masker_r_speaker_id)[0].analog_proc)
 
-    # right
-    freefield.write(tag='masker_r_amps', value=masker_r_amp_list,
-                    processors=freefield.pick_speakers(masker_r_speaker_id)[0].analog_proc)
-    freefield.write(tag='masker_r_channel', value=freefield.pick_speakers(masker_r_speaker_id)[0].analog_channel,
-                    processors=freefield.pick_speakers(masker_r_speaker_id)[0].analog_proc)
-
-
+    # get subject responses
     freefield.play()
 
+    running = True
+
+    n_hits = freefield.read('n_hits', 'RX82')
+    c_targets = freefield.read('n_targets', 'RX82')
+    n_buttons = freefield.read('n_buttons', 'RX82')
+    while running:
+        c_hits = freefield.read('n_hits', 'RX82')
+        if c_hits > n_hits:
+            n_hits = c_hits
+            # level up
+
+        c_targets = freefield.read('n_targets', 'RX82')
+        if c_targets > n_targets:
+            n_targets = c_targets
+            # check if c_hits > n_hits (hits increase) over the next 300-700 ms:
+                # level down
+
+        n_targets = freefield.read('n_targets', 'RX82')
+        n_buttons = freefield.read('n_buttons', 'RX82')
+
+    if
+         # level up
+
+
+
     playing = True
+    #
+    # while not button =
+    #     freefield.play('B')
+    # time.sleep() # todo wait for experiment to finish (loop through blocks)
+    # freefield.halt()
 
 if __name__ == "__main__":
     noise_streaming()
