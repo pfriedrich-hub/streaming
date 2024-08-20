@@ -28,7 +28,7 @@ while run:
                 elif mods & pygame.KMOD_SHIFT and mods & pygame.KMOD_ALT:
                     print("pressed: SHIFT+ALT + PLUS")
                 elif mods & pygame.KMOD_SHIFT:
-                    print("pressed: SHIFT + Plus")
+                    print("pressed: SHIFT + GAME OVER")
                 elif mods & pygame.KMOD_CTRL:
                     print("pressed: CTRL + PLUS")
                 elif mods & pygame.KMOD_ALT:
