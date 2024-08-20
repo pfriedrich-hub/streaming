@@ -1,11 +1,12 @@
 import copy
-
 import matplotlib
 matplotlib.use('TkAgg')
 from matplotlib import pyplot as plt
 from pathlib import Path
 import numpy
 import slab
+
+# https://nitratine.net/blog/post/simulate-keypresses-in-python/#installing-pynput
 
 def select_random_speech(n_trials=30, level=85, wav_path=Path.cwd() / 'data' / 'wav_data'):
 
