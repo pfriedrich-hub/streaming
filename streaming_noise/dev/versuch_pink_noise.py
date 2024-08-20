@@ -1,7 +1,7 @@
 
 import slab
 import random
-import streaming_noise.noise_levels as noise_levels
+import streaming_noise.dev.noise_levels as noise_levels
 
 levels = random.choice(noise_levels.masker)  # frequencies of the tones # todo ?
 seq = slab.Trialsequence(conditions=levels, n_reps=1)  # 10 repetitions per condition

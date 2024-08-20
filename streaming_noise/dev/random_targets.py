@@ -1,7 +1,7 @@
 
 import slab
 import random
-import streaming_noise.noise_levels as noise_levels
+import streaming_noise.dev.noise_levels as noise_levels
 
 non_target_target = slab.Sound.pinknoise(duration=0.5)
 non_target_target.filter(frequency=(500, 3999), kind='bp') # bandpass .25 to 4 kHz
