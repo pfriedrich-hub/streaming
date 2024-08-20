@@ -90,7 +90,7 @@ def noise_streaming(masker_on=True):
         freefield.play()
         # freefield.wait_to_finish_playing(proc='all', tag='')
         while start_time + (n_stim * soa / 1000) > time.time():
-            # todo check whether hits or misses or false positives change and communicate to game
+        # todo check whether hits or misses or false positives change and communicate to game
 
 
         hits = freefield.read('n_hits', 'RX82')

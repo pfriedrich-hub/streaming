@@ -37,15 +37,6 @@ def speech_streaming():
     # iterate over blocks
     for block in range(n_blocks):
 
-        # # wait for button 5 to continue
-        # # todo test this
-        # print('press button to continue')
-        # response = None
-        # print('Bitte gib die Anzahl der gehörten Wörter ein.')
-        # while response != 5:  # wait for and read button
-        #     response = freefield.read('button', 'RP2')
-        #     time.sleep(0.1)
-        #
         # get stimuli for each block
         target_list, masker_l_list, masker_r_list = select_random_speech(n_trials=n_trials, level=level,
                                                                 wav_path=Path.cwd() / 'data' / 'wav_data')
@@ -88,6 +79,7 @@ def speech_streaming():
         masker_l_speaker_id = (masker_l_az, 0)
         masker_r_speaker_id = (masker_r_az, 0)
 
+        #todo make 4 buttons work (change rcx)
         #todo fix save button in the gui
 
 if __name__ == "__main__":
