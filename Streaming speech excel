@@ -1,0 +1,37 @@
+import openpyxl
+
+def aktualisiere_excel(responses, workbook, Kind_Nr_x):
+    kein_Wort = responses[0]
+    print("kein Wort: ",kein_Wort)
+    ein_Wort = responses[1]
+    print("ein Wort: ",ein_Wort)
+    zwei_Worte = responses[2]
+    print("zwei Worte: ",zwei_Worte)
+    drei_Worte = responses[3]
+    print("drei Worte: ",drei_Worte)
+
+    sheet = workbook.active
+    kein_Wort_Zelle = sheet["B2"]
+    kein_Wort_Zelle.value = kein_Wort
+    ein_Wort_Zelle = sheet["B3"]
+    ein_Wort_Zelle.value = ein_Wort
+    zwei_Worte_Zelle = sheet["B4"]
+    zwei_Worte_Zelle.value = zwei_Worte
+    drei_Worte_Zelle = sheet["B5"]
+    drei_Worte_Zelle.value = drei_Worte
+
+    sheet["A1"].value = "Knopf"
+    sheet["B1"].value = "Anzahl"
+    sheet["A2"].value = "kein Wort"
+    sheet["A3"].value = "ein Wort"
+    sheet["A4"].value = "zwei Worte"
+    sheet["A5"].value = "drei Worte"
+    workbook.save(f'Streaming_speech{Kind_Nr_x}.xlsx')
+
+
+workbook_Kind_x = openpyxl.Workbook()
+
+responses_Kind_x = [2, 8, 10, 30]
+Kind_Nr_x = 1
+aktualisiere_excel(responses_Kind_x, workbook_Kind_x, Kind_Nr_x)
+
