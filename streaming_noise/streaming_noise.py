@@ -93,7 +93,7 @@ def noise_streaming(masker_on=True):
                             processors=freefield.pick_speakers(masker_r_speaker_id)[0].analog_proc)
 
         input(f'Next condition {(-azimuth, azimuth)} Press button to start.')
-        freefield.wait_for_button('RX82', 'button')
+        freefield.wait_for_button('RX82', 'button')  # todo check
 
         start_time = time.time()
         freefield.play()

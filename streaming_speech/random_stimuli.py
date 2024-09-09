@@ -7,7 +7,7 @@ import numpy
 import slab
 
 
-def select_random_speech(n_trials=30, level=85, wav_path=Path.cwd() / 'data' / 'wav_data'):
+def select_random_speech(n_trials=30, target_level=85, masker_level=75, wav_path=Path.cwd() / 'data' / 'wav_data'):
 
     numbered_folders = list(wav_path.glob('*'))
     masker_l_list = []  # list containing n_trials stimuli#
@@ -35,7 +35,6 @@ def select_random_speech(n_trials=30, level=85, wav_path=Path.cwd() / 'data' / '
             wav = numpy.random.choice(numbered_wavs)
             wav_path_list.append(wav)
             speech = slab.Sound(wav)
-            speech.level = level
             n_samples.append(speech.n_samples)
             speech_list.append(speech)
 
@@ -53,5 +52,11 @@ def select_random_speech(n_trials=30, level=85, wav_path=Path.cwd() / 'data' / '
         masker_l_list.append(speech_list[0] + speech_list[1])  # list containing n_trials stimuli#
         masker_r_list.append(speech_list[2] + speech_list[3]) # list containing n_trials stimuli
         target_list.append(speech_list[4])  # list containing n_trials stimuli
+
+        # set SNR
+        for i in range(len(target_list)):
+            masker_l_list[i].level = masker_level
+            masker_r_list[i].level = masker_level
+            target_list[i].level = target_level
 
     return target_list, masker_l_list, masker_r_list

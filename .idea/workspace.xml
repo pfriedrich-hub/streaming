@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bd77734-d735-44d5-80b2-8edc78783b5c" name="Changes" comment="work on noise streaming">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="2bd77734-d735-44d5-80b2-8edc78783b5c" name="Changes" comment="connect game to streaming noise">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/rcx/streaming_noise.rcx" beforeDir="false" afterPath="$PROJECT_DIR$/data/rcx/streaming_noise.rcx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_noise/game/python_for_jar.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/game/python_for_jar.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/streaming_noise/one_button.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/calibration/calibration_dome_01.03.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/gui_get_results_streaming_speech.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/results/gui_get_results_streaming_speech.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_noise/Streaming_noise_neu_xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/Streaming_noise_neu_xlsx.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/streaming_noise/streaming_noise.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_noise/streaming_noise.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_speech/gui_streaming_speech_3_conditions.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_speech/gui_streaming_speech_3_conditions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_speech/random_stimuli.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_speech/random_stimuli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streaming_speech/streaming_speech.py" beforeDir="false" afterPath="$PROJECT_DIR$/streaming_speech/streaming_speech.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +84,7 @@
       <recent name="C:\projects\streaming" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.streaming_noise">
+  <component name="RunManager" selected="Python.streaming_speech">
     <configuration name="gui_streaming_speech_3_conditions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="streaming" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -157,6 +159,28 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/streaming_speech/streaming_speech.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="streaming_speech" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="streaming" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -179,6 +203,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.streaming_speech" />
         <item itemvalue="Python.python_for_jar" />
         <item itemvalue="Python.streaming_speech" />
         <item itemvalue="Python.gui_streaming_speech_3_conditions" />
@@ -212,7 +237,9 @@
       <workItem from="1722931643366" duration="5783000" />
       <workItem from="1722940473198" duration="10000" />
       <workItem from="1724065549194" duration="5678000" />
-      <workItem from="1724846756833" duration="9039000" />
+      <workItem from="1724846756833" duration="9131000" />
+      <workItem from="1725010857110" duration="27000" />
+      <workItem from="1725879791226" duration="7411000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -336,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1722940436495</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="connect game to streaming noise">
+      <created>1724855898486</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1724855898486</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -372,7 +406,8 @@
     <MESSAGE value="remove clipping&#10;set level&#10;calibration&#10;prevent repeating target&#10;move folders&#10;reset buffers at end of playing and add playback function in rcx" />
     <MESSAGE value="work on gui" />
     <MESSAGE value="work on noise streaming" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on noise streaming" />
+    <MESSAGE value="connect game to streaming noise" />
+    <option name="LAST_COMMIT_MESSAGE" value="connect game to streaming noise" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/gui_streaming_speech_py$gui_streaming_speech_3_conditions.coverage" NAME="gui_streaming_speech_3_conditions Coverage Results" MODIFIED="1716358621544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/results" />
@@ -380,6 +415,7 @@
     <SUITE FILE_PATH="coverage/random_stimuli_py$streaming_speech.coverage" NAME="streaming_speech Coverage Results" MODIFIED="1715766899906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/streaming_noise_py$streaming_speech.coverage" NAME="streaming_speech Coverage Results" MODIFIED="1724149152385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/streaming$python_for_jar.coverage" NAME="python_for_jar Coverage Results" MODIFIED="1724851283711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
+    <SUITE FILE_PATH="coverage/streaming$streaming_speech__1_.coverage" NAME="streaming_speech Coverage Results" MODIFIED="1725883670599" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
     <SUITE FILE_PATH="coverage/streaming_noise_py$streaming_noise.coverage" NAME="streaming_noise Coverage Results" MODIFIED="1724152726581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />
     <SUITE FILE_PATH="coverage/gui_streaming_speech_py$gui_streaming_speech.coverage" NAME="gui_streaming_speech Coverage Results" MODIFIED="1715775469445" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/results" />
     <SUITE FILE_PATH="coverage/streaming$streaming_noise.coverage" NAME="streaming_noise Coverage Results" MODIFIED="1724854230747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/" />

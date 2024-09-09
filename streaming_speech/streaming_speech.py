@@ -3,14 +3,18 @@ matplotlib.use('TkAgg')
 import freefield
 import time
 from pathlib import Path
-from random_stimuli import select_random_speech
-import gui_streaming_speech_3_conditions
+from streaming_speech.random_stimuli import select_random_speech
+import streaming_speech.gui_streaming_speech_3_conditions as gui
+
 samplerate = 48828
 data_path = Path.cwd() / 'data'
 results_file = Path.cwd() / 'results' / 'gui_get_results_streaming_speech.xlsx'
 conditions = ['52.5°', '35°', '17.5°']
 
-n_trials = 50
+n_trials = 6
+
+# todo connect tablet and show current target sentence
+#  calibrate SNR - test this
 
 def speech_streaming():
     # liste der zu initialisierenden prozessoren und dazugehörige rcx files
@@ -19,30 +23,38 @@ def speech_streaming():
                 ['RP2', 'RP2', data_path / 'rcx' / '4_buttons.rcx']]
     # initialize processors
     freefield.initialize(setup='dome', device=proc_list)
-    freefield.load_equalization(data_path / 'calibration' / 'calibration_dome_01.03.pkl')
     freefield.set_logger('warning')
     # set experiment parameters
-    n_blocks = 1
-    level = 85  # level in dB
+    n_blocks = 3
+    target_level = 85  # level in dB
+    masker_level = 75
     # set initial speakers
-    masker_l_az = -52.5
-    masker_r_az = 52.5
-    masker_l_speaker_id = (masker_l_az, 0)
-    masker_r_speaker_id = (masker_r_az, 0)
+    azimuths = [52.5, 35, 17.5]
     target_speaker_id = (0, 0)
-    # open gui and write to csv
-    window = gui_streaming_speech_3_conditions.open_gui(results_file)
-    gui_streaming_speech_3_conditions.add_close_button(window)
+
+    # open gui
+    window = gui.open_gui(results_file)  # create winod and wait for start button
 
     # iterate over blocks
     for block in range(n_blocks):
 
+        # set masker speakers for each block
+        masker_l_speaker_id = (azimuths[block], 0)
+        masker_r_speaker_id = (-azimuths[block], 0)
+
+        response = None
+        print('Press button 4 to start the next block.')
+        while not response == 4:  # wait for button no 4 to start block
+            response = freefield.read('button', 'RP2')
+            time.sleep(0.1)
+
         # get stimuli for each block
-        target_list, masker_l_list, masker_r_list = select_random_speech(n_trials=n_trials, level=level,
-                                                                wav_path=Path.cwd() / 'data' / 'wav_data')
+        target_list, masker_l_list, masker_r_list = select_random_speech(n_trials=n_trials, target_level=target_level,
+                                                masker_level=masker_level, wav_path=Path.cwd() / 'data' / 'wav_data')
         # iterate over trials
+        responses = []
         for trial_idx in range(n_trials):
-            print(trial_idx)
+            # print(trial_idx)
             # write target sound and speaker to corresponding processor
             freefield.set_signal_and_speaker(signal=target_list[trial_idx], speaker=target_speaker_id, equalize=False, data_tag='data_target',
                                    chan_tag='target_ch', n_samples_tag='n_target')
@@ -56,13 +68,14 @@ def speech_streaming():
             time.sleep(1)
             freefield.play()
             freefield.wait_to_finish_playing()
-            response = None
-            responses = []
+            print(f'Target sentence: {Path(target_list[trial_idx].name).name}')
             print('Bitte gib die Anzahl der gehörten Wörter ein.')
+            response = None
             while not response:  # wait for and read button
                 response = freefield.read('button', 'RP2')
                 time.sleep(0.1)
             responses.append(response)
+            print(f'{int(response)} Wörter erkannt')
 
         # count button responses
         b1 = responses.count(1)
@@ -70,17 +83,7 @@ def speech_streaming():
         b3 = responses.count(3)
         b4 = responses.count(4)
         responses = [b1, b2, b3, b4]
-        gui_streaming_speech_3_conditions.add_responses(window, conditions[block], responses)
-        window.mainloop()
-
-        # set speakers for the next block
-        masker_l_az += 17.5
-        masker_r_az -= 17.5
-        masker_l_speaker_id = (masker_l_az, 0)
-        masker_r_speaker_id = (masker_r_az, 0)
-
-        #todo make 4 buttons work (change rcx)
-        #todo fix save button in the gui
+        gui.add_responses(window, conditions[block], responses)
 
 if __name__ == "__main__":
     speech_streaming()

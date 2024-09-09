@@ -19,8 +19,8 @@ def create_workbook(file_path=Path.cwd() / 'results' / "gui_get_results_streamin
     ws["L1"] = "17.5° Button 3"
     ws["M1"] = "17.5° Button 4"
 
-def write_to_xls(file_path, window):
-    wb = load_workbook(filename=file_path)
+def write_to_xls():
+    wb = load_workbook(filename=path)
     ws = wb['Results']
     new_line = ws.max_row + 1
     ws.cell(column=1, row=new_line, value=window.children['!entry'].get())
@@ -36,10 +36,12 @@ def write_to_xls(file_path, window):
     ws.cell(column=11, row=new_line, value=window.children['!entry11'].get())
     ws.cell(column=12, row=new_line, value=window.children['!entry12'].get())
     ws.cell(column=13, row=new_line, value=window.children['!entry13'].get())
-    wb.save(filename=file_path)
+    wb.save(filename=path)
     print('Save successful')
 
 def open_gui(file_path=Path.cwd() / 'results' / 'gui_get_results_streaming_speech.xlsx'):
+    global window, path
+    path = file_path
     # GUI
     window = tk.Tk()
     window.geometry('1000x700')
@@ -109,17 +111,20 @@ def open_gui(file_path=Path.cwd() / 'results' / 'gui_get_results_streaming_speec
     txtfld_13 = tk.Entry(window, bg='white', width=10, fg='black', bd=3)  # cond 3 button 4
     txtfld_13.place(x=780, y=350)
 
-    # start experiment
-    btn_start = tk.Button(window, text="Start Experiment", fg='black', font=('Helvetica', 16, 'bold'),
-                          command=write_to_xls)
-    btn_start.place(x=700, y=50)
     # save button
-    btn = tk.Button(window, text="Save Entry", fg='black', font=('Helvetica', 16),
-                    command=write_to_xls(file_path, window))
+    btn = tk.Button(window, text="Save Entry", fg='black', font=('Helvetica', 16), command=write_to_xls)
     btn.place(x=800, y=50)
+    btn_exit = tk.Button(window, text="Exit", fg='black', font=('Helvetica', 16), command=window.destroy)
+    btn_exit.place(x=700, y=100)
+
+    # start experiment
+    var = tk.IntVar()
+    btn_start = tk.Button(window, text="Start Experiment", fg='black', font=('Helvetica', 16, 'bold'),
+                          command=lambda: var.set(1))
+    btn_start.place(x=700, y=50)
+    btn_start.wait_variable(var)       # wait until start button is pressed
     # window.mainloop()
     return window
-
 
 def add_responses(window, condition, responses):
     c_dict = {'52.5°': [2, 3, 4, 5], '35°': [6, 7, 8, 9], '17.5°': [10, 11, 12, 13]}
@@ -132,4 +137,5 @@ def add_close_button(window):
     btn_exit = tk.Button(window, text="Exit", fg='black', font=('Helvetica', 16), command=window.destroy)
     btn_exit.place(x=700, y=100)
 
-
+def update():
+    tk.update()
