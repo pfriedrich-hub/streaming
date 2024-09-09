@@ -123,7 +123,7 @@ def open_gui(file_path=Path.cwd() / 'results' / 'gui_get_results_streaming_speec
                           command=lambda: var.set(1))
     btn_start.place(x=700, y=50)
     btn_start.wait_variable(var)       # wait until start button is pressed
-    # window.mainloop()
+    window.mainloop()
     return window
 
 def add_responses(window, condition, responses):

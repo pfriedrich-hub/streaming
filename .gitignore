@@ -1,1 +1,5 @@
 .DS_Store.*
+.idea
+.streaming.iml
+.vcs.xml
+.workspace.xml
