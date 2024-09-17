@@ -7,8 +7,14 @@ from pathlib import Path
 data_path = Path.cwd() / 'data'
 from matplotlib import pyplot as plt
 from pynput.keyboard import Controller
+from streaming_noise.write_results import *
 keyboard = Controller()
 # import game.python_for_jar as python_for_jar
+
+# todo test experiment
+# todo target only
+
+subject_id = 'test'
 
 def noise_streaming(masker_on=True):
 
@@ -18,6 +24,8 @@ def noise_streaming(masker_on=True):
         azimuths = [52.5, 35, 17.5]
     else:
         azimuths = [52.5]
+
+    write_subject(subject_id)  # write subject id to new row
 
     for azimuth in azimuths:
         masker_l_az = -azimuth
@@ -93,7 +101,7 @@ def noise_streaming(masker_on=True):
                             processors=freefield.pick_speakers(masker_r_speaker_id)[0].analog_proc)
 
         input(f'Next condition {(-azimuth, azimuth)} Press button to start.')
-        freefield.wait_for_button('RX82', 'button')  # todo check
+        freefield.wait_for_button('RX82', 'button')
 
         start_time = time.time()
         freefield.play()
@@ -116,9 +124,9 @@ def noise_streaming(masker_on=True):
             if false_positives == n_false_positives + 1:
                 press('-')
                 print('fp')
-                n_false_positives = false_positives     # todo check fp
+                n_false_positives = false_positives
 
-                # todo write to excel
+        write_to_xls(condition=azimuth, hits=n_hits, missed=n_missed, false_positive=n_false_positives)
 
 def press(key):
     keyboard.press(key)
@@ -132,5 +140,5 @@ if __name__ == "__main__":
     freefield.initialize(setup='dome', device=proc_list)
     freefield.set_logger('info')
     noise_streaming(masker_on=False)
-    # noise_streaming(masker_on=True)
+    noise_streaming(masker_on=True)
     freefield.halt()

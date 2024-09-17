@@ -2,7 +2,7 @@ from openpyxl import *
 import tkinter as tk
 from pathlib import Path
 
-def create_workbook(file_path=Path.cwd() / 'results' / "gui_get_results_streaming_speech.xlsx"):
+def create_workbook(file_path=Path.cwd() / 'results' / "streaming_speech.xlsx"):
     wb = load_workbook(filename=file_path)
     ws = wb['Results']
     ws["A1"] = "Subject ID"
