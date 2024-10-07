@@ -3,8 +3,12 @@ matplotlib.use('TkAgg')
 import freefield
 import time
 from pathlib import Path
-from streaming_speech.random_stimuli import select_random_speech
-import streaming_speech.gui_streaming_speech_3_conditions as gui
+
+from random_stimuli import select_random_speech
+#from streaming_speech.random_stimuli import select_random_speech   # Aufruf am 7.10. wurde nicht akzeptiert
+
+from gui_streaming_speech_3_conditions import *
+#import streaming_speech.gui_streaming_speech_3_conditions as gui   # Aufruf am 7.10. wurde nicht akzeptiert
 
 samplerate = 48828
 data_path = Path.cwd() / 'data'
@@ -36,7 +40,7 @@ def speech_streaming():
     target_speaker_id = (0, 0)
 
     # open gui
-    window = gui.open_gui(results_file)  # create winod and wait for start button
+    window = gui.open_gui(results_file)  # create window wait for start button
 
     # iterate over blocks
     for block in range(n_blocks):

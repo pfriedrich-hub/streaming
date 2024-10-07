@@ -20,7 +20,7 @@ keyboard = Controller()
 #  press button to start
 
 # this is the subject id that will be saved in an excel sheet (together with behavior data)
-subject_id = 'test1'
+subject_id = 'Kind1'
 
 def noise_streaming(masker_on=True):
 
