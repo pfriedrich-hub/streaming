@@ -20,7 +20,7 @@ keyboard = Controller()
 #  press button to start
 
 # this is the subject id that will be saved in an excel sheet (together with behavior data)
-subject_id = 'Kind1'
+subject_id = 'Kind3'
 
 def noise_streaming(masker_on=True):
 
@@ -55,11 +55,11 @@ def noise_streaming(masker_on=True):
         # amplitudes
         baseline_amp = 30
         amp_range = 65
-        ceiling_amp = baseline_amp + amp_range
-        masker_amps = [baseline_amp + amp_range / 5, baseline_amp + amp_range / 2.5,
-                       ceiling_amp - amp_range / 2.5, ceiling_amp - amp_range / 5]
-        target_amp = masker_amps[3]
-        non_target_amp = masker_amps[1]
+        ceiling_amp = baseline_amp + amp_range                                          # = 95
+        masker_amps = [baseline_amp + amp_range / 5, baseline_amp + amp_range / 2.5,    # = 30 + 13  / 30 + 26
+                       ceiling_amp - amp_range / 2.5, ceiling_amp - amp_range / 5]      # = 95 - 26 / 95 - 13
+        target_amp = masker_amps[3]                                                     # = 69
+        non_target_amp = masker_amps[1]                                                 # = 43
 
         # reduce masker amps
         masker_amps = [masker_amp - 30 for masker_amp in masker_amps]
