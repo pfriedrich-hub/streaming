@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bd77734-d735-44d5-80b2-8edc78783b5c" name="Changes" comment="work on streaming speech (again)">
-      <change beforePath="$PROJECT_DIR$/.idea/streaming.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/streaming.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="2bd77734-d735-44d5-80b2-8edc78783b5c" name="Changes" comment="work on streaming speech (again)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -190,9 +187,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.streaming_noise" />
       <item itemvalue="Python.gui_streaming_speech_3_conditions" />
       <item itemvalue="Python.python_for_jar" />
+      <item itemvalue="Python.streaming_noise" />
       <item itemvalue="Python.streaming_speech" />
     </list>
     <recent_temporary>
@@ -237,6 +234,7 @@
       <workItem from="1727270775210" duration="10828000" />
       <workItem from="1729073515482" duration="264000" />
       <workItem from="1729073833162" duration="749000" />
+      <workItem from="1729327259235" duration="426000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -367,7 +365,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724855898486</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="work on streaming speech (again)">
+      <option name="closed" value="true" />
+      <created>1729327274953</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1729327274953</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +410,8 @@
     <MESSAGE value="work on gui" />
     <MESSAGE value="work on noise streaming" />
     <MESSAGE value="connect game to streaming noise" />
-    <option name="LAST_COMMIT_MESSAGE" value="connect game to streaming noise" />
+    <MESSAGE value="work on streaming speech (again)" />
+    <option name="LAST_COMMIT_MESSAGE" value="work on streaming speech (again)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/gui_streaming_speech_py$gui_streaming_speech_3_conditions.coverage" NAME="gui_streaming_speech_3_conditions Coverage Results" MODIFIED="1716358621544" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/results" />
